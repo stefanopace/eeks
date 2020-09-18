@@ -1,7 +1,6 @@
 const json = `
 {
     "name": "Greetings",
-    "description": "
     "options": [
         {
             "name": "Hello",
@@ -28,10 +27,10 @@ const json = `
                 {
                     "name": "Johnny"
                 }
-            ]
+            ],
             "execute": {
-                "lang": "sh"
-                "commands": ["echo \"Who are you, $name?\""]
+                "lang": "sh",
+                "commands": ["echo \\"Who are you, $name?\\""]
             }
         }
     ]
