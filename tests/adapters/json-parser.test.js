@@ -1,5 +1,6 @@
 const LeafNode = require('../../lib/core/nodes/leaf-node.js').LeafNode;
 const ListNode = require('../../lib/core/nodes/list-node.js').ListNode;
+const { DynamicNode } = require('../../lib/core/nodes/dynamic-node.js');
 const ConfigParser = require('../../lib/adapters/json-parser.js').ConfigParser;
 
 const json1 = `
@@ -89,4 +90,32 @@ test('Can parse nested list nodes', () => {
         expect(child).toBeInstanceOf(LeafNode);
         expect(child.parentNode).toBe(rootNode.children[0]);
     })
+});
+
+const json3 = `
+{
+    "type": "dynamic",
+    "returns": "path",
+    "execute": {
+        "lang": "sh",
+        "commands": ["ls"]
+    },
+    "resolvers": [ {
+        "type": "leaf",
+        "execute": {
+            "lang": "sh",
+            "commands": ["echo {path}"]
+        }
+    } ]
+}
+`;
+
+test('Can parse dynamic list nodes', () => {
+    const parser = new ConfigParser(null, null);
+    const rootNode = parser.parseConfigFile(json3);
+
+    expect(rootNode).toBeInstanceOf(DynamicNode);
+    expect(rootNode.children).toHaveLength(1);
+    expect(rootNode.children[0]).toBeInstanceOf(LeafNode);
+    expect(rootNode.children[0].parentNode).toBe(rootNode);
 });
