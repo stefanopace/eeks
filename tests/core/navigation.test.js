@@ -4,18 +4,35 @@ const ExactMatcher = require('../../lib/core/matchers/exact.js').ExactMatcher;
 const AlwaysMatcher = require('../../lib/core/matchers/always.js').AlwaysMatcher;
 
 const FakeChooser = require('../doubles/fake-chooser.js').FakeChooser;
+const SpyRunner = require('../doubles/spy-runner.js').SpyRunner;
 const SpyCommand = require('../doubles/spy-command.js').SpyCommand;
 
 test('Can navigate a simple menu', () => {
+    const runner = new SpyRunner();
     const rootNode = new ListNode(
+        runner,
+        new FakeChooser("cat"),
         null,
-
+        undefined,
+        new AlwaysMatcher(),
+        ["dog", "cat", "banana"]
     );
 
-    expect(rootNode).toBeInstanceOf(ListNode);
-    expect(rootNode.children).toHaveLength(3);
-    rootNode.children.forEach((child) => {
-        expect(child).toBeInstanceOf(LeafNode);
-        expect(child.parentNode).toBe(rootNode);
-    })
+    const children = [
+        new LeafNode(
+            runner,
+            rootNode,
+            new ExactMatcher(["dog"]),
+            new SpyCommand("fake command for dog")
+        ),
+        new LeafNode(
+            runner,
+            rootNode,
+            new ExactMatcher(["cat", "banana"]),
+            new SpyCommand("command for cats and bananas")
+        )
+    ]
+
+    rootNode.resolve();
+    expect(runner.executedCommand).toBe("command for cats and bananas")
 });
