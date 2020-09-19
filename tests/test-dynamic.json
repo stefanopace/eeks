@@ -11,21 +11,33 @@
             "resolvers": [ {
                     "type": "leaf",
                     "match" : ["World"],
-                    "execute": ["echo Hello World!"]
+                    "execute": {
+                        "lang": "sh",
+                        "commands": ["echo Hello World!"]
+                    }
                 },{
                     "type": "leaf",
                     "match" : ["Man"],
-                    "execute": ["echo Yo man!"]
+                    "execute": {
+                        "lang": "sh",
+                        "commands": ["echo Yo man!"]
+                    }
                 },{
                     "type": "leaf",
                     "match": ["Johnny"],
-                    "execute": ["echo \"Who are you {name}?\""]
+                    "execute": {
+                        "lang": "sh",
+                        "commands": ["echo \"Who are you {name}?\""]
+                    }
             } ]
         },
         {
             "type": "leaf",
             "match": "Exit",
-            "execute": ["echo \"Bye!\""]
+            "execute": {
+                "lang": "sh",
+                "commands": ["echo \"Bye!\""]
+            }
         }
     ]
 }

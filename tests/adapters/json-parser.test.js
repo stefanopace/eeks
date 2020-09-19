@@ -11,24 +11,15 @@ const json1 = `
     "resolvers": [ {
             "type": "leaf",
             "match" : ["World"],
-            "execute": {
-                "lang": "sh",
-                "commands": ["echo Hello World!"]
-            }
+            "execute": ["echo Hello World!"]
         },{
             "type": "leaf",
             "match" : ["Man"],
-            "execute": {
-                "lang": "sh",
-                "commands": ["echo Yo man!"]
-            }
+            "execute": ["echo Yo man!"]
         },{
             "type": "leaf",
             "match": ["Unknow", "Johnny"],
-            "execute": {
-                "lang": "sh",
-                "commands": ["echo \\"Who are you {name}?\\""]
-            }
+            "execute": ["echo \\"Who are you {name}?\\""]
     } ]
 }
 `;
@@ -58,18 +49,12 @@ const json2 = `
             "resolvers": [ {
                 "type": "leaf",
                 "match": ["a", "c"],
-                "execute": {
-                    "lang": "sh",
-                    "commands": ["ls"]
-                }
+                "execute": ["ls"]
             } ]
         },{
             "type": "leaf",
             "match" : ["Man"],
-            "execute": {
-                "lang": "sh",
-                "commands": ["echo Yo man!"]
-            }
+            "execute": ["echo Yo man!"]
     } ]
 }
 `;
@@ -96,16 +81,10 @@ const json3 = `
 {
     "type": "dynamic",
     "returns": "path",
-    "execute": {
-        "lang": "sh",
-        "commands": ["ls"]
-    },
+    "execute": ["ls"]
     "resolvers": [ {
         "type": "leaf",
-        "execute": {
-            "lang": "sh",
-            "commands": ["echo {path}"]
-        }
+        "execute": ["echo {path}"]
     } ]
 }
 `;
