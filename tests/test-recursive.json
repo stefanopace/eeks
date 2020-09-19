@@ -1,0 +1,12 @@
+{
+    "type": "recursive",
+    "returns": "path",
+    "accumulator": "acc",
+    "initial": "./",
+    "execute": ["ls -p $(echo {acc} | tr -d \" \")"],
+    "stop-condition": ["test -f $(echo {acc} | tr -d \" \")"],
+    "resolvers": [ {
+        "type": "leaf",
+        "execute": ["xdg-open $(echo {acc} | tr -d \" \")"]
+    } ]
+}
