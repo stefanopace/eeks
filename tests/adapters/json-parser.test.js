@@ -1,33 +1,29 @@
 const json = `
 {
-    "name": "Greetings",
+    "type": "list",
+    "names": ["Greet"],
+    "return": "what_to_do",
     "options": [
         {
-            "name": "Hello",
-            "returns": "name",
-            "description": "say hi!",
-            "options": [
-                {
-                    "name": "World",
-                    "execute": {
-                        "lang": "sh",
-                        "commands": ["echo Hello World!"]
-                    }
-                },
-                {
-                    "name": "Man",
-                    "execute": {
-                        "lang": "sh",
-                        "commands": ["echo Yo man!"]
-                    }
-                },
-                {
-                    "name": "Unknow"
-                },
-                {
-                    "name": "Johnny"
-                }
-            ],
+            "type": "leaf",
+            "names": ["World"],
+            "execute": {
+                "lang": "sh",
+                "commands": ["echo Hello World!"]
+            }
+        },
+        {
+            "type": "leaf",
+            "names": ["Man"],
+            "execute": {
+                "lang": "sh",
+                "commands": ["echo Yo man!"]
+            }
+        },
+        {
+            "type": "leaf",
+            "names": ["Unknow", "Johnny"],
+            "return": "name",
             "execute": {
                 "lang": "sh",
                 "commands": ["echo \\"Who are you, $name?\\""]
@@ -39,15 +35,14 @@ const json = `
 
 const LeafNode = require('../../lib/core/node/leaf-node.js').LeafNode;
 const ListNode = require('../../lib/core/node/list-node.js').ListNode;
-const parser = require('../../lib/adapters/json-parser.js');
+const ConfigParser = require('../../lib/adapters/json-parser.js').ConfigParser;
 
-test('Can parse a json with only list nodes and leafs', () => {
-    const rootNode = parser.toTree(json);
+test('Can parse a json with only one list node and 3 leaves', () => {
+    const parser = new ConfigParser(json, null, null);
+    const rootNode = parser.parseConfigFile(json);
     expect(rootNode).toBeInstanceOf(ListNode);
+    expect(rootNode.children).toHaveLength(3);
     rootNode.children.forEach((child) => {
-        expect(child).toBeInstanceOf(ListNode);
-        child.children.forEach((nepote) => {
-            expect(nepote).toBeInstanceOf(LeafNode);
-        })
+        expect(child).toBeInstanceOf(LeafNode);
     })
 });
