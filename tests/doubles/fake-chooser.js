@@ -1,10 +1,12 @@
+const OptionChoice = require('../../lib/core/choices/option-choice.js').OptionChoice
+
 class FakeChooser {
     constructor(choiceToMake){
         this.choice = choiceToMake;
     }
 
-    chooserFrom(options){
-        return this.choice;
+    chooseFrom(options){
+        return new OptionChoice(this.choice);
     }
 }
 

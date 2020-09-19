@@ -9,6 +9,8 @@ const SpyCommand = require('../doubles/spy-command.js').SpyCommand;
 
 test('Can navigate a simple menu', () => {
     const runner = new SpyRunner();
+    const commandToExecute = new SpyCommand("command for cats and bananas");
+
     const rootNode = new ListNode(
         runner,
         new FakeChooser("cat"),
@@ -29,10 +31,12 @@ test('Can navigate a simple menu', () => {
             runner,
             rootNode,
             new ExactMatcher(["cat", "banana"]),
-            new SpyCommand("command for cats and bananas")
+            commandToExecute
         )
     ]
 
+    rootNode.children = children;
+
     rootNode.resolve();
-    expect(runner.executedCommand).toBe("command for cats and bananas")
+    expect(runner.executedCommand).toBe(commandToExecute);
 });

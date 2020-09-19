@@ -1,9 +1,9 @@
 class SpyRunner {
-    constructor(commandToExecute){
+    constructor(){}
+
+    run(commandToExecute){
         this.executedCommand = commandToExecute;
     }
-
-    run(){}
 }
 
 module.exports = {
