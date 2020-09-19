@@ -1,0 +1,27 @@
+{
+    "type": "list",
+    "returns": "name",
+    "options": ["World", "Man", "Unknown", "Johnny"],
+    "resolvers": [ {
+            "type": "leaf",
+            "match" : ["World"],
+            "execute": {
+                "lang": "sh",
+                "commands": ["echo Hello World!"]
+            }
+        },{
+            "type": "leaf",
+            "match" : ["Man"],
+            "execute": {
+                "lang": "sh",
+                "commands": ["echo Yo man!"]
+            }
+        },{
+            "type": "leaf",
+            "match": ["Unknown", "Johnny"],
+            "execute": {
+                "lang": "sh",
+                "commands": ["echo \"Who are you {name}?\""]
+            }
+    } ]
+}
