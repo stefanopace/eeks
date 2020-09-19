@@ -1,35 +1,30 @@
 const json = `
 {
     "type": "list",
-    "names": ["Greet"],
-    "return": "what_to_do",
-    "options": [
-        {
+    "returns": "name",
+    "options": ["World", "Man", "Unknown", "Johnny"],
+    "resolvers": [ {
             "type": "leaf",
-            "names": ["World"],
+            "match" : ["World"],
             "execute": {
                 "lang": "sh",
                 "commands": ["echo Hello World!"]
             }
-        },
-        {
+        },{
             "type": "leaf",
-            "names": ["Man"],
+            "match" : ["Man"],
             "execute": {
                 "lang": "sh",
                 "commands": ["echo Yo man!"]
             }
-        },
-        {
+        },{
             "type": "leaf",
-            "names": ["Unknow", "Johnny"],
-            "return": "name",
+            "match": ["Unknow", "Johnny"],
             "execute": {
                 "lang": "sh",
-                "commands": ["echo \\"Who are you, $name?\\""]
+                "commands": ["echo \\"Who are you {name}?\\""]
             }
-        }
-    ]
+    } ]
 }
 `;
 
