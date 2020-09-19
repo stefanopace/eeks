@@ -3,7 +3,9 @@ class SpyRunner {
 
     run(commandToExecute, parameters){
         this.executedCommand = commandToExecute;
-        this.parameters = parameters
+        this.parameters = parameters;
+        console.log("executing: " + commandToExecute);
+        console.log("parameters: " + parameters);
     }
 }
 
