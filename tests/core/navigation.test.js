@@ -15,6 +15,7 @@ test('Can navigate a simple menu', () => {
         runner,
         new FakeChooser("cat"),
         null,
+        null,
         undefined,
         new AlwaysMatcher(),
         ["dog", "cat", "banana"]
@@ -39,4 +40,51 @@ test('Can navigate a simple menu', () => {
 
     rootNode.resolve();
     expect(runner.executedCommand).toBe(commandToExecute);
+});
+
+
+test('Can pass parameters trough nodes', () => {
+    const runner = new SpyRunner();
+    const commandToExecute = new SpyCommand("{language} {opinion}");
+
+    const rootNode = new ListNode(
+        runner,
+        new FakeChooser("elixir"),
+        "language",
+        null,
+        undefined,
+        new AlwaysMatcher(),
+        ["python", "javascript", "php", "elixir"]
+    );
+
+    const children = [
+        new ListNode(
+            runner,
+            new FakeChooser("is great"),
+            "opinion",
+            rootNode,
+            undefined,
+            new AlwaysMatcher(),
+            ["is great", "sucks"]
+        )
+    ]
+
+    const nepotes = [
+        new LeafNode(
+            runner,
+            children[0],
+            new AlwaysMatcher(),
+            commandToExecute
+        )
+    ]
+    
+    children[0].children = nepotes;
+    rootNode.children = children;
+
+    rootNode.resolve();
+    expect(runner.executedCommand).toBe(commandToExecute);
+    expect(runner.parameters).toEqual({
+        language: "elixir",
+        opinion: "is great"
+    })
 });
