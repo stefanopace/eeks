@@ -24,6 +24,7 @@
                     }
                 },{
                     "type": "leaf",
+                    "match": ["Johnny"],
                     "execute": {
                         "lang": "sh",
                         "commands": ["echo \"Who are you {name}?\""]
