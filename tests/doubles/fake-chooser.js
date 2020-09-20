@@ -1,12 +1,15 @@
-const OptionChoice = require('../../lib/core/choices/option-choice.js').OptionChoice
+const { ExitChoice } = require('../../lib/core/choices/exit-choice.js')
 
 class FakeChooser {
-    constructor(choiceToMake){
-        this.choice = choiceToMake;
+    constructor(choicesToMake){
+        this.choicesToMake = choicesToMake;
     }
 
     chooseFrom(options){
-        return new OptionChoice(this.choice);
+        if (this.choicesToMake.length === 0) 
+            return new ExitChoice();
+
+        return this.choicesToMake.shift();
     }
 }
 

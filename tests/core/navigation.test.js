@@ -3,13 +3,12 @@ const { ListNode } = require('../../lib/core/nodes/list-node.js');
 const { ExactMatcher } = require('../../lib/core/matchers/exact.js');
 const { AlwaysMatcher } = require('../../lib/core/matchers/always.js');
 
-const { FakeChooser } = require('../doubles/fake-chooser.js');
+const { FakeChooser } = require('../doubles/simple-fake-chooser.js');
 const { SpyRunner } = require('../doubles/spy-runner.js');
-const { SpyCommand } = require('../doubles/spy-command.js');
 
 test('Can navigate a simple menu', () => {
     const runner = new SpyRunner();
-    const commandToExecute = new SpyCommand("command for cats and bananas");
+    const commandToExecute = "command for cats and bananas";
 
     const rootNode = new ListNode(
         runner,
@@ -26,7 +25,7 @@ test('Can navigate a simple menu', () => {
             runner,
             rootNode,
             [new ExactMatcher(["dog"])],
-            new SpyCommand("fake command for dog")
+            ["fake command for dog"]
         ),
         new LeafNode(
             runner,
@@ -38,15 +37,18 @@ test('Can navigate a simple menu', () => {
 
     rootNode.children = children;
 
-    rootNode.resolve();
-    expect(runner.executedCommand).toBe(commandToExecute);
+    rootNode.resolve({});
+    expect(runner.commandHistory[0]).toEqual({
+        "command": "command for cats and bananas", 
+        "parameters": {}, 
+        "type": "run-and-show"
+    });
 });
 
 
 test('Can pass parameters trough nodes', () => {
     const runner = new SpyRunner();
-    const commandToExecute = new SpyCommand("{language} {opinion}");
-
+    const commandToExecute = "{language} {opinion}";
     const rootNode = new ListNode(
         runner,
         new FakeChooser("elixir"),
@@ -82,9 +84,9 @@ test('Can pass parameters trough nodes', () => {
     rootNode.children = children;
 
     rootNode.resolve();
-    expect(runner.executedCommand).toBe(commandToExecute);
-    expect(runner.parameters).toEqual({
-        language: "elixir",
-        opinion: "is great"
-    })
+    expect(runner.commandHistory[0]).toEqual( {
+            "command": "{language} {opinion}", 
+            "parameters": {"language": "elixir", "opinion": "is great"}, 
+            "type": "run-and-show"
+    } );
 });
