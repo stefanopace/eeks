@@ -1,11 +1,11 @@
-const LeafNode = require('../../lib/core/nodes/leaf-node.js').LeafNode;
-const ListNode = require('../../lib/core/nodes/list-node.js').ListNode;
-const ExactMatcher = require('../../lib/core/matchers/exact.js').ExactMatcher;
-const AlwaysMatcher = require('../../lib/core/matchers/always.js').AlwaysMatcher;
+const { LeafNode } = require('../../lib/core/nodes/leaf-node.js');
+const { ListNode } = require('../../lib/core/nodes/list-node.js');
+const { ExactMatcher } = require('../../lib/core/matchers/exact.js');
+const { AlwaysMatcher } = require('../../lib/core/matchers/always.js');
 
-const FakeChooser = require('../doubles/fake-chooser.js').FakeChooser;
-const SpyRunner = require('../doubles/spy-runner.js').SpyRunner;
-const SpyCommand = require('../doubles/spy-command.js').SpyCommand;
+const { FakeChooser } = require('../doubles/fake-chooser.js');
+const { SpyRunner } = require('../doubles/spy-runner.js');
+const { SpyCommand } = require('../doubles/spy-command.js');
 
 test('Can navigate a simple menu', () => {
     const runner = new SpyRunner();
