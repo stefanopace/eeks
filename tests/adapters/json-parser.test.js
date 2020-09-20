@@ -1,8 +1,12 @@
-const LeafNode = require('../../lib/core/nodes/leaf-node.js').LeafNode;
-const ListNode = require('../../lib/core/nodes/list-node.js').ListNode;
+const { LeafNode } = require('../../lib/core/nodes/leaf-node.js');
+const { ListNode } = require('../../lib/core/nodes/list-node.js');
 const { DynamicNode } = require('../../lib/core/nodes/dynamic-node.js');
 const { RecursiveNode } = require('../../lib/core/nodes/recursive-node.js');
-const ConfigParser = require('../../lib/adapters/json-parser.js').ConfigParser;
+const { ConfigParser } = require('../../lib/adapters/json-parser.js');
+const { AlwaysMatcher } = require('../../lib/core/matchers/always.js');
+const { ExactMatcher } = require('../../lib/core/matchers/exact.js');
+const { ContainsMatcher } = require('../../lib/core/matchers/contains.js');
+const { RegexMatcher } = require('../../lib/core/matchers/regex.js');
 
 const json1 = `
 {
@@ -11,15 +15,15 @@ const json1 = `
     "options": ["World", "Man", "Unknown", "Johnny"],
     "resolvers": [ {
             "type": "leaf",
-            "match" : ["World"],
+            "match-exact" : ["World"],
             "execute": ["echo Hello World!"]
         },{
             "type": "leaf",
-            "match" : ["Man"],
+            "match-exact" : ["Man"],
             "execute": ["echo Yo man!"]
         },{
             "type": "leaf",
-            "match": ["Unknow", "Johnny"],
+            "match-exact": ["Unknow", "Johnny"],
             "execute": ["echo \\"Who are you {name}?\\""]
     } ]
 }
@@ -45,16 +49,16 @@ const json2 = `
     "resolvers": [ {
             "type": "list",
             "returns": "num",
-            "match": ["1", "2"],
+            "match-exact": ["1", "2"],
             "options": ["a", "b", "c"],
             "resolvers": [ {
                 "type": "leaf",
-                "match": ["a", "c"],
+                "match-exact": ["a", "c"],
                 "execute": ["ls"]
             } ]
         },{
             "type": "leaf",
-            "match" : ["Man"],
+            "match-exact" : ["Man"],
             "execute": ["echo Yo man!"]
     } ]
 }
@@ -107,7 +111,7 @@ const json4 = `
     "accumulator": "acc",
     "initial": "",
     "execute": ["ls $(echo {acc} | tr \\" \\" \\"/\\")"],
-    "stop-condition": ["test -f $(echo {pre} | tr \\" \\" \\"/\\")/{path}"],
+    "stop-condition": ["test -f $(echo {pre} | tr \\" \\" \\"/\\")"],
     "resolvers": [ {
         "type": "leaf",
         "execute": ["xdg-open {path}"]
@@ -120,4 +124,48 @@ test('Can parse recursive list nodes', () => {
     const rootNode = parser.parseConfigFile(json4);
 
     expect(rootNode).toBeInstanceOf(RecursiveNode);
+});
+
+
+const json5 = `
+{
+    "type": "recursive",
+    "returns": "path",
+    "accumulator": "acc",
+    "initial": "",
+    "execute": ["ls $(echo {acc} | tr \\" \\" \\"/\\")"],
+    "stop-condition": ["test -f $(echo {pre} | tr \\" \\" \\"/\\")"],
+    "resolvers": [ 
+        {
+            "type": "leaf",
+            "execute": ["xdg-open {path}"]
+        },
+        {
+            "type": "leaf",
+            "match-exact": ["package.json"],
+            "execute": ["echo matched exactly package.json {path}"]
+        },
+        {
+            "type": "leaf",
+            "match-contains": ["node", "system"],
+            "match-exact": ["never.js"],
+            "execute": ["echo matched containing node {path}"]
+        },
+        {
+            "type": "leaf",
+            "match-regex": ["^.*\\\\.js$"],
+            "execute": ["echo matched regex ends with .js {path}"]
+        }
+    ]
+}
+`
+test('Can parse matchers', () => {
+    const parser = new ConfigParser(null, null);
+    const rootNode = parser.parseConfigFile(json5);
+
+    expect(rootNode.children[0].matchers[0]).toBeInstanceOf(AlwaysMatcher);
+    expect(rootNode.children[1].matchers[0]).toBeInstanceOf(ExactMatcher);
+    expect(rootNode.children[2].matchers[0]).toBeInstanceOf(ExactMatcher);
+    expect(rootNode.children[2].matchers[1]).toBeInstanceOf(ContainsMatcher);
+    expect(rootNode.children[3].matchers[0]).toBeInstanceOf(RegexMatcher);
 });

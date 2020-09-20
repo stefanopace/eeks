@@ -17,7 +17,7 @@ test('Can navigate a simple menu', () => {
         null,
         null,
         undefined,
-        new AlwaysMatcher(),
+        [new AlwaysMatcher()],
         ["dog", "cat", "banana"]
     );
 
@@ -25,13 +25,13 @@ test('Can navigate a simple menu', () => {
         new LeafNode(
             runner,
             rootNode,
-            new ExactMatcher(["dog"]),
+            [new ExactMatcher(["dog"])],
             new SpyCommand("fake command for dog")
         ),
         new LeafNode(
             runner,
             rootNode,
-            new ExactMatcher(["cat", "banana"]),
+            [new ExactMatcher(["cat", "banana"])],
             commandToExecute
         )
     ]
@@ -53,7 +53,7 @@ test('Can pass parameters trough nodes', () => {
         "language",
         null,
         undefined,
-        new AlwaysMatcher(),
+        [new AlwaysMatcher()],
         ["python", "javascript", "php", "elixir"]
     );
 
@@ -64,7 +64,7 @@ test('Can pass parameters trough nodes', () => {
             "opinion",
             rootNode,
             undefined,
-            new AlwaysMatcher(),
+            [new AlwaysMatcher()],
             ["is great", "sucks"]
         )
     ]
@@ -73,7 +73,7 @@ test('Can pass parameters trough nodes', () => {
         new LeafNode(
             runner,
             children[0],
-            new AlwaysMatcher(),
+            [new AlwaysMatcher()],
             commandToExecute
         )
     ]

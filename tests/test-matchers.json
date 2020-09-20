@@ -1,0 +1,26 @@
+{
+    "type": "recursive",
+    "returns": "path",
+    "accumulator": "acc",
+    "initial": "",
+    "execute": ["ls -p $(echo {acc} | tr -d \" \")"],
+    "stop-condition": ["test -f $(echo {acc} | tr -d \" \")"],
+    "resolvers": [ 
+        {
+            "type": "leaf",
+            "match-exact": ["package.json"],
+            "execute": ["echo matched exactly package.json {path}"]
+        },
+        {
+            "type": "leaf",
+            "match-contains": ["node", "system"],
+            "match-exact": ["never.js"],
+            "execute": ["echo matched containing node {path}"]
+        },
+        {
+            "type": "leaf",
+            "match-regex": ["^.*\\.js$"],
+            "execute": ["echo matched regex ends with .js {path}"]
+        }
+    ]
+}

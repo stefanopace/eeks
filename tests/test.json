@@ -6,25 +6,25 @@
         {
             "type": "list",
             "returns": "name",
-            "match": ["Hello"],
+            "match-exact": ["Hello"],
             "options": ["World", "Man", "Pippo", "Johnny"],
             "resolvers": [ {
                     "type": "leaf",
-                    "match" : ["World"],
+                    "match-exact" : ["World"],
                     "execute": ["echo Hello World!"]
                 },{
                     "type": "leaf",
-                    "match" : ["Man"],
+                    "match-exact" : ["Man"],
                     "execute": ["echo Yo man!"]
                 },{
                     "type": "leaf",
-                    "match": ["Johnny"],
+                    "match-exact": ["Johnny"],
                     "execute": ["echo \"Who are you {name}?\""]
             } ]
         },
         {
             "type": "leaf",
-            "match": "Exit",
+            "match-exact": "Exit",
             "execute": ["echo \"Bye!\""]
         }
     ]
