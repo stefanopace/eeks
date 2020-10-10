@@ -8,20 +8,17 @@ const configProvider = require('../configurations/provider.js');
 
 describe('Output filter', () => {
     test('Can filter choosen option to extract parameter', () => {
+
         const chooser = new FakeChooser([
-            new OptionChoice("Elixir"),
-            new OptionChoice("is awesome")
+            new OptionChoice("1234_Stefano 2020-08-10")
         ]);
     
         const runner = new SpyRunner();
     
-        automenu.execute(configProvider.simpleMenuWithParams, runner, chooser);
+        automenu.execute(configProvider.simpleListWithOutputFilter, runner, chooser);
         
         expect(runner.commandHistory[0].parameters).toEqual(
-            {
-                language: 'Elixir', 
-                opinion: 'is awesome'
-            }
+            {"name": "Stefano"}
         );
     });
 });

@@ -1,32 +1,12 @@
 {
     "type": "list",
-    "returns": "action",
-    "options": ["Hello", "Exit"],
+    "returns": "name",
+    "options": ["1234_Stefano 2020-08-10", "4321_Mario 2020-08-12"],
+    "filter": ["\\b([a-Z]+)\b","$1"],
     "resolvers": [
         {
-            "type": "list",
-            "returns": "name",
-            "match-exact": ["Hello"],
-            "options": ["World", "Man", "Pippo", "Johnny"],
-            "resolvers": [ 
-                {
-                    "type": "leaf",
-                    "match-exact" : ["World"],
-                    "execute": ["echo Hello World!"]
-                }, {
-                    "type": "leaf",
-                    "match-exact" : ["Man"],
-                    "execute": ["echo Yo man!"]
-                }, {
-                    "type": "leaf",
-                    "match-exact": ["Johnny"],
-                    "execute": ["echo \"Who are you {name}?\""]
-                } 
-            ]
-        }, {
             "type": "leaf",
-            "match-exact": ["Exit"],
-            "execute": ["echo \"Bye!\""]
+            "execute": ["Filtered output: {name}"]
         }
     ]
 }
