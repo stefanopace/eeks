@@ -8,18 +8,19 @@
             "options": ["enter", "up-light", "down", "restart", "send-mails"],
             "resolvers": [ 
                 {
-					"type": "dynamic",
-					"match-exact": ["enter"],
-					"returns": "selected-container",
-					"execute": ["docker ps --format \"table {{.ID}}\t{{.Names}}\t{{.Status}}\" | sed -E \"s#  +#  #\" | tail -n +2"],
-					"resolvers": [
-						{
-							"type": "leaf",
-							"execute": ["docker exec -it {selected-container} sh"]
-						}
-					]
+                    "type": "dynamic",
+                    "match-exact": ["enter"],
+                    "returns": "selected-container",
+                    "filter": "",
+                    "execute": ["docker ps --format \"table {{.ID}}\t{{.Names}}\t{{.Status}}\" | sed -E \"s#  +#  #\" | tail -n +2"],
+                    "resolvers": [
+                        {
+                            "type": "leaf",
+                            "execute": ["docker exec -it {selected-container} sh"]
+                        }
+                    ]
                 } 
             ]
-		}
+        }
     ]
 }
