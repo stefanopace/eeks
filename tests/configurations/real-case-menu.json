@@ -11,7 +11,7 @@
                     "type": "dynamic",
                     "match-exact": ["enter"],
                     "returns": "selected-container",
-                    "filter": ["\\w+\\s+(\\w+)\\s.*", "$1"],
+                    "filters": [ { "type": "regex", "substitute": "\\w+\\s+(\\w+)\\s.*", "with": "$1" } ],
                     "execute": ["docker ps --format \"table {{.ID}}\t{{.Names}}\t{{.Status}}\" | sed -E \"s#  +#  #\" | tail -n +2"],
                     "resolvers": [
                         {
