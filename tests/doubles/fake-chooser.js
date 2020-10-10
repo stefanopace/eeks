@@ -5,7 +5,7 @@ class FakeChooser {
         this.choicesToMake = choicesToMake;
     }
 
-    chooseFrom(options){
+    chooseFrom(options, previousChoices){
         if (this.choicesToMake.length === 0) 
             return new ExitChoice();
 
