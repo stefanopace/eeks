@@ -4,9 +4,10 @@
 2020-09-21 08:08:14 -> not done yet -> creare un selettore di default senza fzf
 2020-09-21 08:08:29 -> not done yet -> aggiungere la descrizione ai nodi
 2020-09-21 08:08:47 -> not done yet -> considerare di usare l header di fzf per qualcosa
-2020-09-21 08:09:08 -> not done yet -> inserire un filtro sulla selezione prima di passare il parametro
+2020-09-21 08:09:08 -> 2020-10-10 19:37:54 -> inserire un filtro sulla selezione prima di passare il parametro
 2020-09-21 08:09:18 -> not done yet -> autodetect di fzf
 2020-09-21 08:09:28 -> not done yet -> inserire modalita di deubg
 2020-09-21 08:09:44 -> not done yet -> risolvere: con il tasto backspace ora non si puo piu cancellare
 2020-09-21 08:10:02 -> not done yet -> possibilita di passare delle opzioni prescelte da argomenti
 2020-09-21 09:19:04 -> not done yet -> inserire messaggio di errore in caso di comandi con exit code non 0
+2020-10-10 19:40:07 -> not done yet -> aggiungere filtro tramite comando di sistema
