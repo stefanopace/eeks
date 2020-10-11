@@ -2,7 +2,7 @@
     "type": "recursive",
     "returns": "last",
     "accumulator": "acc",
-    "initial": "",
+    "initial": "initial value",
     "execute": ["some command with {acc}"],
     "stop-condition": ["{acc}"],
     "resolvers": [ 

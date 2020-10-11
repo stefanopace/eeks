@@ -20,4 +20,24 @@ describe('Navigation into recursive node', () => {
         automenu.execute(configProvider.simpleRecursive, runner, chooser);
         expect(runner.commandHistory.slice(-1)[0].command).toEqual(['you stopped recursion!'])
     });
+
+    test('Intermediate results accumulates into the accumulator parameter', () => {
+        const chooser = new FakeChooser([
+            new OptionChoice("something"),
+            new OptionChoice("something else"),
+            new OptionChoice("almost done"),
+            new OptionChoice("stop"),
+        ]);
+    
+        const runner = new SpyRunner();
+    
+        automenu.execute(configProvider.simpleRecursive, runner, chooser);
+        expect(runner.commandHistory.slice(-1)[0].parameters.acc).toEqual([
+            "initial value",
+            "something",
+            "something else",
+            "almost done",
+            "stop"
+        ]);
+    });
 });
