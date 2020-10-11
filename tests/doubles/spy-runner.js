@@ -34,7 +34,6 @@ class SpyRunner {
             parameters: parameters,
             type: 'check-stop-condition'
         });
-        console.log(parameters);
         return parameters.acc.slice(-1)[0] === 'stop';
     }
 }

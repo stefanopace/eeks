@@ -18,7 +18,6 @@ describe('Navigation into recursive node', () => {
         const runner = new SpyRunner();
     
         automenu.execute(configProvider.simpleRecursive, runner, chooser);
-        console.log(runner.commandHistory);
         expect(runner.commandHistory.slice(-1)[0].command).toEqual(['you stopped recursion!'])
     });
 });
