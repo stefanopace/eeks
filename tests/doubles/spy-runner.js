@@ -1,3 +1,5 @@
+const { Ok } = require("../../lib/core/results/ok");
+
 class SpyRunner {
     constructor(){
         this.commandHistory = [];
@@ -9,6 +11,8 @@ class SpyRunner {
             parameters: parameters,
             type: 'run-and-show'
         });
+
+        return new Ok();
     }
 
     quitProgram(){
