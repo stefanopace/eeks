@@ -4,6 +4,7 @@ const { SpyRunner } = require('../doubles/spy-runner.js');
 const { OptionChoice } = require('../../lib/core/choices/option-choice.js');
 const { GoBackChoice } = require('../../lib/core/choices/go-back-choice.js');
 const { ExitChoice } = require('../../lib/core/choices/exit-choice.js');
+const { EarlyExit } = require('../../lib/core/results/early-exit.js');
 const configProvider = require('../configurations/provider.js');
 
 describe('Navigation into simple menu', () => {
@@ -46,9 +47,9 @@ describe('Navigation into simple menu', () => {
     
         const runner = new SpyRunner();
     
-        automenu.execute(configProvider.simpleListMenu, runner, chooser);
-    
-        expect(runner.commandHistory.length).toBe(1);
-        expect(runner.commandHistory[0].type).toBe('quit-program');
+        const result = automenu.execute(configProvider.simpleListMenu, runner, chooser);
+        
+        expect(result).toBeInstanceOf(EarlyExit);
+        expect(runner.commandHistory.length).toBe(0);
     });
 });
