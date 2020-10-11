@@ -1,10 +1,10 @@
-const automenu = require('../../lib/core/automenu.js');
-const { FakeChooser } = require('../doubles/fake-chooser.js');
-const { SpyRunner } = require('../doubles/spy-runner.js');
-const { OptionChoice } = require('../../lib/core/choices/option-choice.js');
-const { GoBackChoice } = require('../../lib/core/choices/go-back-choice.js');
-const { ExitChoice } = require('../../lib/core/choices/exit-choice.js');
-const configProvider = require('../configurations/provider.js');
+const automenu = require('../../lib/core/automenu');
+const { FakeChooser } = require('../doubles/fake-chooser');
+const { SpyRunner } = require('../doubles/spy-runner');
+const { OptionChoice } = require('../../lib/core/choices/option-choice');
+const { GoBackChoice } = require('../../lib/core/choices/go-back-choice');
+const { ExitChoice } = require('../../lib/core/choices/exit-choice');
+const configProvider = require('../configurations/provider');
 
 describe('Dynamic generation', () => {
     test('Call commands for options generation', () => {

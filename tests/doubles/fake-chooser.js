@@ -1,4 +1,4 @@
-const { ExitChoice } = require('../../lib/core/choices/exit-choice.js')
+const { ExitChoice } = require('../../lib/core/choices/exit-choice')
 
 class FakeChooser {
     constructor(choicesToMake){
