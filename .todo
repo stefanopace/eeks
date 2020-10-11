@@ -12,7 +12,7 @@
 2020-09-21 09:19:04 -> 2020-10-11 15:47:08 -> inserire messaggio di errore in caso di comandi con exit code non 0
 2020-10-10 19:40:07 -> not done yet -> aggiungere filtro tramite comando di sistema
 2020-10-10 23:32:28 -> 2020-10-11 15:47:20 -> aggiungere test sulla navigazione dei nodi ricorsivi
-2020-10-11 11:24:00 -> not done yet -> rimuovere .js dai require
+2020-10-11 11:24:00 -> 2020-10-11 15:58:54 -> rimuovere .js dai require
 2020-10-11 12:13:30 -> not done yet -> mettere tutti tab o tutti spazi
 2020-10-11 13:33:55 -> 2020-10-11 15:47:42 -> gestire se in fzf si da invio dopo aver filtrato senza alcun risultato
 2020-10-11 15:46:50 -> not done yet -> aggiungere colori allo stacktrace
