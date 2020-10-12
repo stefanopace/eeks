@@ -18,3 +18,6 @@
 2020-10-11 15:46:50 -> not done yet -> aggiungere colori allo stacktrace
 2020-10-11 16:34:32 -> not done yet -> aggiungere al trace la trasformazione dell output
 2020-10-12 09:07:57 -> not done yet -> non si vede piu l output con test.json
+2020-10-12 09:39:20 -> not done yet -> aggiungere possibilita di avere dei file con funzioni predefinite
+2020-10-12 09:39:33 -> not done yet -> aggiungere la possibilita di usare piu file di configurazione
+2020-10-12 09:39:43 -> not done yet -> aggiungere sistema di parsing dei parametri serio
