@@ -1,8 +1,11 @@
 {
-  "name": "automenu",
+  "name": "izi",
   "version": "1.0.0",
-  "description": "dynamically creates navigable menus from configuration",
+  "description": "Dynamically creates navigable menus from configuration",
   "main": "lib/index.js",
+  "bin": {
+    "izi": "./lib/index.js"
+  },
   "scripts": {
     "test": "jest || exit 0"
   },
@@ -10,5 +13,8 @@
   "license": "ISC",
   "devDependencies": {
     "jest": "^26.4.2"
+  },
+  "dependencies": {
+    "yargs": "^16.0.3"
   }
 }
