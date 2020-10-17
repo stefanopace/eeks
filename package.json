@@ -1,20 +1,21 @@
 {
-  "name": "izi",
-  "version": "1.0.0",
-  "description": "Dynamically creates navigable menus from configuration",
-  "main": "lib/index.js",
-  "bin": {
-	"izi": "./lib/index.js"
-  },
-  "scripts": {
-	"test": "jest && sh ./tests/functionals/endtoend/multiple-source.sh"
-  },
-  "author": "Stefano Pace",
-  "license": "ISC",
-  "devDependencies": {
-	"jest": "^26.4.2"
-  },
-  "dependencies": {
-	"yargs": "^16.0.3"
-  }
+ "name": "izi",
+ "version": "1.0.0",
+ "description": "Dynamically creates navigable menus from configuration",
+ "main": "lib/index.js",
+ "bin": {
+  "izi": "./lib/index.js"
+ },
+ "scripts": {
+  "test": "jest && sh ./tests/functionals/endtoend/multiple-source.sh"
+ },
+ "author": "Stefano Pace",
+ "license": "ISC",
+ "devDependencies": {
+  "jest": "^26.4.2"
+ },
+ "dependencies": {
+  "chalk": "^4.1.0",
+  "yargs": "^16.0.3"
+ }
 }
