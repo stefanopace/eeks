@@ -1,18 +1,18 @@
 {
-    "type": "list",
-    "returns": "name",
-    "options": ["1234_Stefano 2020-08-10", "4321_Mario 2020-08-12"],
-    "filters": [
-        {
-            "type": "regex",
-            "substitute": "[0-9]+_([A-z]+) .*",
-            "with": "$1"
-        }
-    ],
-    "resolvers": [
-        {
-            "type": "leaf",
-            "execute": ["Filtered output: {name}"]
-        }
-    ]
+	"type": "list",
+	"returns": "name",
+	"options": ["1234_Stefano 2020-08-10", "4321_Mario 2020-08-12"],
+	"filters": [
+		{
+			"type": "regex",
+			"substitute": "[0-9]+_([A-z]+) .*",
+			"with": "$1"
+		}
+	],
+	"resolvers": [
+		{
+			"type": "leaf",
+			"execute": ["Filtered output: {name}"]
+		}
+	]
 }

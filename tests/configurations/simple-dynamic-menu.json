@@ -1,9 +1,9 @@
 {
-    "type": "dynamic",
-    "returns": "path",
-    "execute": ["ls"],
-    "resolvers": [ {
-        "type": "leaf",
-        "execute": ["echo {path}"]
-    } ]
+	"type": "dynamic",
+	"returns": "path",
+	"execute": ["ls"],
+	"resolvers": [ {
+		"type": "leaf",
+		"execute": ["echo {path}"]
+	} ]
 }

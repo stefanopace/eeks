@@ -1,16 +1,16 @@
 {
-    "type": "list",
-    "returns": "language",
-    "options": ["JavaScript", "Python", "Elixir"],
-    "resolvers": [ {
-        "type": "list",
-        "returns": "opinion",
-        "options": ["sucks", "is awesome"],
-        "resolvers": [
-            {
-                "type": "leaf",
-                "execute": ["echo {language} {opinion}!"]
-            }
-        ]
-    } ]
+	"type": "list",
+	"returns": "language",
+	"options": ["JavaScript", "Python", "Elixir"],
+	"resolvers": [ {
+		"type": "list",
+		"returns": "opinion",
+		"options": ["sucks", "is awesome"],
+		"resolvers": [
+			{
+				"type": "leaf",
+				"execute": ["echo {language} {opinion}!"]
+			}
+		]
+	} ]
 }

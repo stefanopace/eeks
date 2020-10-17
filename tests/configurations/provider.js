@@ -9,11 +9,11 @@ const simpleListWithOutputFilter = JSON.parse(fs.readFileSync('./tests/configura
 const simpleRecursive = JSON.parse(fs.readFileSync('./tests/configurations/simple-recursive.json', 'utf-8'));
 
 module.exports = {
-    simpleListMenu,
-    simpleMenuWithParams,
-    simpleFsNavigation,
-    simpleRecursive,
-    simpleDynamicMenu,
-    recursiveMenuWithAllMatchers,
-    simpleListWithOutputFilter
+	simpleListMenu,
+	simpleMenuWithParams,
+	simpleFsNavigation,
+	simpleRecursive,
+	simpleDynamicMenu,
+	recursiveMenuWithAllMatchers,
+	simpleListWithOutputFilter
 }

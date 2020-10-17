@@ -1,14 +1,14 @@
 {
-    "type": "recursive",
-    "returns": "last",
-    "accumulator": "acc",
-    "initial": "initial value",
-    "execute": ["some command with {acc}"],
-    "stop-condition": ["{acc}"],
-    "resolvers": [ 
-        {
-            "type": "leaf",
-            "execute": ["you stopped recursion!"]
-        }
-    ]
+	"type": "recursive",
+	"returns": "last",
+	"accumulator": "acc",
+	"initial": "initial value",
+	"execute": ["some command with {acc}"],
+	"stop-condition": ["{acc}"],
+	"resolvers": [ 
+		{
+			"type": "leaf",
+			"execute": ["you stopped recursion!"]
+		}
+	]
 }

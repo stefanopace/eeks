@@ -4,17 +4,17 @@
   "description": "Dynamically creates navigable menus from configuration",
   "main": "lib/index.js",
   "bin": {
-    "izi": "./lib/index.js"
+	"izi": "./lib/index.js"
   },
   "scripts": {
-    "test": "jest || exit 0"
+	"test": "jest || exit 0"
   },
   "author": "Stefano Pace",
   "license": "ISC",
   "devDependencies": {
-    "jest": "^26.4.2"
+	"jest": "^26.4.2"
   },
   "dependencies": {
-    "yargs": "^16.0.3"
+	"yargs": "^16.0.3"
   }
 }

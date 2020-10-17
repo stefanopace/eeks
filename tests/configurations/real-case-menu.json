@@ -1,26 +1,26 @@
 {
-    "type": "list",
-    "options": ["devbox"],
-    "resolvers": [
-        {
-            "type": "list",
-            "match-exact": ["devbox"],
-            "options": ["enter", "up-light", "down", "restart", "send-mails"],
-            "resolvers": [ 
-                {
-                    "type": "dynamic",
-                    "match-exact": ["enter"],
-                    "returns": "selected-container",
-                    "filters": [ { "type": "regex", "substitute": "\\w+\\s+([\\w-]+)\\s.*", "with": "$1" } ],
-                    "execute": ["docker ps --format \"table {{.ID}}\t{{.Names}}\t{{.Status}}\" | sed -E \"s#  +#  #\" | tail -n +2"],
-                    "resolvers": [
-                        {
-                            "type": "leaf",
-                            "execute": ["docker exec -it {selected-container} sh"]
-                        }
-                    ]
-                } 
-            ]
-        }
-    ]
+	"type": "list",
+	"options": ["devbox"],
+	"resolvers": [
+		{
+			"type": "list",
+			"match-exact": ["devbox"],
+			"options": ["enter", "up-light", "down", "restart", "send-mails"],
+			"resolvers": [ 
+				{
+					"type": "dynamic",
+					"match-exact": ["enter"],
+					"returns": "selected-container",
+					"filters": [ { "type": "regex", "substitute": "\\w+\\s+([\\w-]+)\\s.*", "with": "$1" } ],
+					"execute": ["docker ps --format \"table {{.ID}}\t{{.Names}}\t{{.Status}}\" | sed -E \"s#  +#  #\" | tail -n +2"],
+					"resolvers": [
+						{
+							"type": "leaf",
+							"execute": ["docker exec -it {selected-container} sh"]
+						}
+					]
+				} 
+			]
+		}
+	]
 }

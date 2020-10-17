@@ -1,15 +1,15 @@
 {
-    "type": "recursive",
-    "returns": "path",
-    "accumulator": "acc",
-    "initial": "./",
-    "execute": ["ls -lp $(echo {acc} | tr -d \" \") | tail -n +2"],
-    "filters": [{"type": "regex", "substitute": ".*\\s([^\\s]+)$", "with": "$1"}],
-    "stop-condition": ["test -f $(echo {acc} | tr -d \" \")"],
-    "resolvers": [ 
-        {
-            "type": "leaf",
-            "execute": ["xdg-open $(echo {acc} | tr -d \" \")"]
-        }
-    ]
+	"type": "recursive",
+	"returns": "path",
+	"accumulator": "acc",
+	"initial": "./",
+	"execute": ["ls -lp $(echo {acc} | tr -d \" \") | tail -n +2"],
+	"filters": [{"type": "regex", "substitute": ".*\\s([^\\s]+)$", "with": "$1"}],
+	"stop-condition": ["test -f $(echo {acc} | tr -d \" \")"],
+	"resolvers": [ 
+		{
+			"type": "leaf",
+			"execute": ["xdg-open $(echo {acc} | tr -d \" \")"]
+		}
+	]
 }
