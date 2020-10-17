@@ -1,0 +1,18 @@
+{
+	"type": "dynamic",
+	"returns": "first",
+	"execute": ["first_options"],
+	"resolvers": [
+		{
+			"type": "dynamic",
+			"returns": "second",
+			"execute": ["second_options"],
+			"resolvers": [ 
+				{
+					"type": "leaf",
+					"execute": ["echo_test {first} {second}"]
+				} 
+			]
+		}
+	]
+}
