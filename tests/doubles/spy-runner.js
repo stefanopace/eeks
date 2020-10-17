@@ -21,7 +21,7 @@ class SpyRunner {
 			parameters: parameters,
 			type: 'generate-options'
 		});
-		return [];
+		return ['fake option'];
 	}
 
 	statusCodeIsOk(commandToExecute, parameters){
