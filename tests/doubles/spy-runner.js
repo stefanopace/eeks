@@ -15,14 +15,6 @@ class SpyRunner {
         return new Ok();
     }
 
-    quitProgram(){
-        this.commandHistory.push({
-            command: null,
-            parameters: null,
-            type: 'quit-program'
-        });
-    }
-
     execAndGetOutputAsArray(commandToExecute, parameters){
         this.commandHistory.push({
             command: commandToExecute,
