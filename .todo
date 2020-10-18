@@ -19,5 +19,6 @@
 2020-10-11 16:34:32 -> 2020-10-17 22:42:36 -> aggiungere al trace la trasformazione dell output
 2020-10-12 09:07:57 -> 2020-10-16 10:06:23 -> non si vede piu l output con test.json
 2020-10-12 09:39:20 -> 2020-10-17 11:49:41 -> aggiungere possibilita di avere dei file con funzioni predefinite
-2020-10-12 09:39:33 -> not done yet -> aggiungere la possibilita di usare piu file di configurazione
+2020-10-12 09:39:33 -> 2020-10-18 15:46:44 -> aggiungere la possibilita di usare piu file di configurazione
 2020-10-12 09:39:43 -> 2020-10-16 10:06:05 -> aggiungere sistema di parsing dei parametri serio
+2020-10-18 15:47:02 -> not done yet -> aggiungere readme
