@@ -25,7 +25,8 @@
 2020-10-18 16:06:52 -> 2020-10-18 19:21:37 -> fare il match con i parametri invece che con l opzione scelta
 2020-10-18 16:55:02 -> 2020-10-18 19:38:06 -> rimuovere duplicazione tra nodo ricorsivo e simple node
 2020-10-18 19:21:19 -> not done yet -> permettere piu accumulatori
-2020-10-18 19:21:28 -> not done yet -> rinominare handlers in handlers
+2020-10-18 19:21:28 -> 2020-10-18 21:24:56 -> rinominare handlers in handlers
 2020-10-18 19:42:14 -> not done yet -> rivedere i messaggi del traceback in vista delle nuove modifiche
 2020-10-18 20:01:56 -> not done yet -> sistemare lo storico delle scelte con il nuovo sistema
 2020-10-18 20:02:43 -> 2020-10-18 20:05:31 -> mettere i matchers in and invece che in or
+2020-10-18 21:34:16 -> not done yet -> valutare possibilita di eseguire comandi con altri interpreti oltre sh
