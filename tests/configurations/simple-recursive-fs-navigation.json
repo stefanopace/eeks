@@ -1,10 +1,14 @@
 {
 	"type": "recursive",
-	"set": [ { "name": "path" } ],
+	"set": [ 
+		{ 
+			"name": "path",
+			"filters": [{"type": "regex", "substitute": ".*\\s([^\\s]+)$", "with": "$1"}]
+		} 
+	],
 	"accumulator": "acc",
 	"initial": "./",
 	"execute": ["ls -lp $(echo {acc} | tr -d \" \") | tail -n +2"],
-	"filters": [{"type": "regex", "substitute": ".*\\s([^\\s]+)$", "with": "$1"}],
 	"stop-condition": ["test -f $(echo {acc} | tr -d \" \")"],
 	"resolvers": [ 
 		{
