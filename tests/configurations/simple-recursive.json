@@ -4,7 +4,7 @@
 	"accumulator": { "name": "acc", "initial": "initial value" },
 	"execute": ["some command with {acc}"],
 	"stop-condition": ["{acc}"],
-	"resolvers": [ 
+	"handlers": [ 
 		{
 			"type": "leaf",
 			"execute": ["you stopped recursion!"]

@@ -2,12 +2,12 @@
 	"type": "dynamic",
 	"set": [ { "name": "first" } ],
 	"execute": ["first_options"],
-	"resolvers": [
+	"handlers": [
 		{
 			"type": "dynamic",
 			"set": [ { "name": "second" } ],
 			"execute": ["second_options"],
-			"resolvers": [ 
+			"handlers": [ 
 				{
 					"type": "leaf",
 					"execute": ["echo_test {first} {second}"]

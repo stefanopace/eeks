@@ -2,13 +2,13 @@
 	"type": "list",
 	"set": [ { "name": "action" } ],
 	"options": ["Hello", "Exit"],
-	"resolvers": [
+	"handlers": [
 		{
 			"type": "list",
 			"set": [ { "name": "name" } ],
 			"match": [ { "name": "action", "type": "exact", "value": "Hello" } ],
 			"options": ["World", "Man", "Pippo", "Johnny"],
-			"resolvers": [ 
+			"handlers": [ 
 				{
 					"type": "leaf",
 					"match" : [ { "name": "name", "type": "exact", "value": "World" } ],

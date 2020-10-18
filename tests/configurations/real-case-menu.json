@@ -1,19 +1,19 @@
 {
 	"type": "list",
 	"options": ["devbox"],
-	"resolvers": [
+	"handlers": [
 		{
 			"type": "list",
 			"match-exact": ["devbox"],
 			"options": ["enter", "up-light", "down", "restart", "send-mails"],
-			"resolvers": [ 
+			"handlers": [ 
 				{
 					"type": "dynamic",
 					"match-exact": ["enter"],
 					"set": [ { "name": "selected-container" } ],
 					"filters": [ { "type": "regex", "substitute": "\\w+\\s+([\\w-]+)\\s.*", "with": "$1" } ],
 					"execute": ["docker ps --format \"table {{.ID}}\t{{.Names}}\t{{.Status}}\" | sed -E \"s#  +#  #\" | tail -n +2"],
-					"resolvers": [
+					"handlers": [
 						{
 							"type": "leaf",
 							"execute": ["docker exec -it {selected-container} sh"]

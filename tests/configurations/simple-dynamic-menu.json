@@ -2,7 +2,7 @@
 	"type": "dynamic",
 	"set": [ { "name": "path" } ],
 	"execute": ["ls"],
-	"resolvers": [ {
+	"handlers": [ {
 		"type": "leaf",
 		"execute": ["echo {path}"]
 	} ]

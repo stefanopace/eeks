@@ -5,7 +5,7 @@
 	"initial": "",
 	"execute": ["ls $(echo {acc} | tr \" \" \"/\")"],
 	"stop-condition": ["test -f $(echo {pre} | tr \" \" \"/\")"],
-	"resolvers": [ 
+	"handlers": [ 
 		{
 			"type": "leaf",
 			"execute": ["xdg-open {path}"]

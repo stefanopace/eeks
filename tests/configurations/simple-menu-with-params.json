@@ -2,11 +2,11 @@
 	"type": "list",
 	"set": [ { "name": "language" } ],
 	"options": ["JavaScript", "Python", "Elixir"],
-	"resolvers": [ {
+	"handlers": [ {
 		"type": "list",
 		"set": [ { "name": "opinion" } ],
 		"options": ["sucks", "is awesome"],
-		"resolvers": [
+		"handlers": [
 			{
 				"type": "leaf",
 				"execute": ["echo {language} {opinion}!"]

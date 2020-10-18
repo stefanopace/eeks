@@ -13,7 +13,7 @@
 	},
 	"execute": ["ls -lp $(echo {acc} | tr -d \" \") | tail -n +2"],
 	"stop-condition": ["test -f $(echo {acc} | tr -d \" \")"],
-	"resolvers": [ 
+	"handlers": [ 
 		{
 			"type": "leaf",
 			"execute": ["xdg-open $(echo {acc} | tr -d \" \")"]
