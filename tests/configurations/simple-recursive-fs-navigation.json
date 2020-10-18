@@ -1,6 +1,6 @@
 {
 	"type": "recursive",
-	"returns": "path",
+	"set": "path",
 	"accumulator": "acc",
 	"initial": "./",
 	"execute": ["ls -lp $(echo {acc} | tr -d \" \") | tail -n +2"],

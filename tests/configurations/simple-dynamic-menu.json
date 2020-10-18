@@ -1,6 +1,6 @@
 {
 	"type": "dynamic",
-	"returns": "path",
+	"set": "path",
 	"execute": ["ls"],
 	"resolvers": [ {
 		"type": "leaf",

@@ -1,10 +1,10 @@
 {
 	"type": "list",
-	"returns": "language",
+	"set": "language",
 	"options": ["JavaScript", "Python", "Elixir"],
 	"resolvers": [ {
 		"type": "list",
-		"returns": "opinion",
+		"set": "opinion",
 		"options": ["sucks", "is awesome"],
 		"resolvers": [
 			{
