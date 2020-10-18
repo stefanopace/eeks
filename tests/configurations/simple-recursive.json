@@ -1,6 +1,6 @@
 {
 	"type": "recursive",
-	"set": "last",
+	"set": [ { "name": "last" } ],
 	"accumulator": "acc",
 	"initial": "initial value",
 	"execute": ["some command with {acc}"],

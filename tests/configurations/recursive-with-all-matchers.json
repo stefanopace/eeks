@@ -1,6 +1,6 @@
 {
 	"type": "recursive",
-	"set": "path",
+	"set": [ { "name": "path" } ],
 	"accumulator": "acc",
 	"initial": "",
 	"execute": ["ls $(echo {acc} | tr \" \" \"/\")"],

@@ -23,3 +23,4 @@
 2020-10-12 09:39:43 -> 2020-10-16 10:06:05 -> aggiungere sistema di parsing dei parametri serio
 2020-10-18 15:47:02 -> not done yet -> aggiungere readme
 2020-10-18 16:06:52 -> not done yet -> fare il match con i parametri invece che con l opzione scelta
+2020-10-18 16:55:02 -> not done yet -> rimuovere duplicazione tra nodo ricorsivo e simple node

@@ -1,11 +1,11 @@
 {
 	"type": "dynamic",
-	"set": "first",
+	"set": [ { "name": "first" } ],
 	"execute": ["first_options"],
 	"resolvers": [
 		{
 			"type": "dynamic",
-			"set": "second",
+			"set": [ { "name": "second" } ],
 			"execute": ["second_options"],
 			"resolvers": [ 
 				{

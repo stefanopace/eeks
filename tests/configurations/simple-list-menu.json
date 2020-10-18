@@ -1,11 +1,11 @@
 {
 	"type": "list",
-	"set": "action",
+	"set": [ { "name": "action" } ],
 	"options": ["Hello", "Exit"],
 	"resolvers": [
 		{
 			"type": "list",
-			"set": "name",
+			"set": [ { "name": "name" } ],
 			"match-exact": ["Hello"],
 			"options": ["World", "Man", "Pippo", "Johnny"],
 			"resolvers": [ 
