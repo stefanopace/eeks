@@ -1,8 +1,7 @@
 {
 	"type": "recursive",
 	"set": [ { "name": "last" } ],
-	"accumulator": "acc",
-	"initial": "initial value",
+	"accumulator": { "name": "acc", "initial": "initial value" },
 	"execute": ["some command with {acc}"],
 	"stop-condition": ["{acc}"],
 	"resolvers": [ 

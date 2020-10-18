@@ -6,8 +6,11 @@
 			"filters": [{"type": "regex", "substitute": ".*\\s([^\\s]+)$", "with": "$1"}]
 		} 
 	],
-	"accumulator": "acc",
-	"initial": "./",
+	"accumulator": {
+		"name": "acc",
+		"filters": [{"type": "regex", "substitute": ".*\\s([^\\s]+)$", "with": "$1"}],
+		"initial": "./"
+	},
 	"execute": ["ls -lp $(echo {acc} | tr -d \" \") | tail -n +2"],
 	"stop-condition": ["test -f $(echo {acc} | tr -d \" \")"],
 	"resolvers": [ 
