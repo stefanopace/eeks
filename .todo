@@ -22,5 +22,7 @@
 2020-10-12 09:39:33 -> 2020-10-18 15:46:44 -> aggiungere la possibilita di usare piu file di configurazione
 2020-10-12 09:39:43 -> 2020-10-16 10:06:05 -> aggiungere sistema di parsing dei parametri serio
 2020-10-18 15:47:02 -> not done yet -> aggiungere readme
-2020-10-18 16:06:52 -> not done yet -> fare il match con i parametri invece che con l opzione scelta
-2020-10-18 16:55:02 -> not done yet -> rimuovere duplicazione tra nodo ricorsivo e simple node
+2020-10-18 16:06:52 -> 2020-10-18 19:21:37 -> fare il match con i parametri invece che con l opzione scelta
+2020-10-18 16:55:02 -> 2020-10-18 19:38:06 -> rimuovere duplicazione tra nodo ricorsivo e simple node
+2020-10-18 19:21:19 -> not done yet -> permettere piu accumulatori
+2020-10-18 19:21:28 -> not done yet -> rinominare resolvers in handlers
