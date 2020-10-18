@@ -17,8 +17,7 @@ describe('Output filter', () => {
 		const runner = new SpyRunner();
 		const debug = new DummyDebugger(); 
 	
-		automenu.execute(configProvider.simpleListWithOutputFilter, runner, chooser, debug);
-		
+		const result = automenu.execute(configProvider.simpleListWithOutputFilter, runner, chooser, debug);
 		expect(runner.commandHistory[0].parameters).toEqual(
 			{"name": "Stefano"}
 		);
