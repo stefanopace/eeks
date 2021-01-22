@@ -5,7 +5,7 @@
  "author": "Stefano Pace",
  "main": "lib/index.js",
  "bin": {
-  "izi": "./lib/index.js"
+  "eeks": "./lib/index.js"
  },
  "scripts": {
   "test": "jest && sh ./tests/functionals/endtoend/multiple-source.sh"
