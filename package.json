@@ -1,6 +1,6 @@
 {
  "name": "eeks",
- "version": "1.0.1",
+ "version": "1.0.2",
  "description": "Dynamically creates navigable menus from configuration",
  "author": "Stefano Pace",
  "main": "lib/index.js",
