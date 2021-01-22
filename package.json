@@ -2,7 +2,7 @@
  "name": "eeks",
  "version": "1.0.0",
  "description": "Dynamically creates navigable menus from configuration",
- "author": "Stefano Pace <stefanopace01@gmail.com> (http://stefanopace.xyz)",
+ "author": "Stefano Pace",
  "main": "lib/index.js",
  "bin": {
   "izi": "./lib/index.js"
@@ -10,7 +10,6 @@
  "scripts": {
   "test": "jest && sh ./tests/functionals/endtoend/multiple-source.sh"
  },
- "author": "Stefano Pace",
  "license": "ISC",
  "devDependencies": {
   "jest": "^26.4.2"
