@@ -1,0 +1,17 @@
+{
+	"type": "list",
+	"set": [ 
+		{ 
+			"name": "count-spaces",
+			"filters": [
+				{
+					"type": "command",
+					"placeholder": "full-greeting",
+					"execute": [ "echo {full-greeting} | tr -cd ' ' | wc -c" ]
+				}
+			]
+		}
+	],
+	"options": ["Hello World!", "Welcome to eeks!"],
+	"handlers": []
+}

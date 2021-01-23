@@ -64,6 +64,66 @@ Es:
 
 ## Settaggio delle variabili
 
+Effettuando una scelta sarà possibile settare delle variabili che poi potranno essere utilizzate in tutti i comandi. Per settare una variabile sarà possibile inserire il parametro "set" contenente la lista di variabili da settare.
 
+Es.
+```
+{
+	"type": "list",
+	"set": [ { "name": "greeting" } ],
+	"options": ["Hello World!", "Welcome to eeks!"],
+	"handlers": []
+}
+```
+
+Nell'esempio di sopra la variabile `greeting` conterrà "Hello World!" o "Welcome to eeks!" in base alla scelta effettuata.  
+È possibile applicare dei filtri prima di settare le variabili per estrarre delle singole informazioni dalla scelta effettuata. Per farlo andrà configurato il parametro "filters" contenente una lista di filtri da applicare.  
+Il primo modo per applicare un filtro è attraverso una sostituzione tramite regex.
+
+Es.
+```
+{
+	"type": "list",
+	"set": [ 
+		{ 
+			"name": "greeting",
+			"filters": [
+				{
+					"type": "regex",
+					"substitute": "([A-z]+) .*",
+					"with": "$1"
+				}
+			]
+		}
+	],
+	"options": ["Hello World!", "Welcome to eeks!"],
+	"handlers": []
+}
+```
+
+Nell'esempio precedente la variabile `greeting` conterrà il valore "Hello" o "Welcome" in base alla scelta effettuata.
+
+Il secondo modo per applicare un filtro è tramite l'esecuzione di un comando.
+
+Es.
+```
+{
+	"type": "list",
+	"set": [ 
+		{ 
+			"name": "count-spaces",
+			"filters": [
+				{
+					"type": "command",
+					"placeholder": "full-greeting",
+					"execute": [ "echo {full-greeting} | tr -cd ' ' | wc -c" ]
+				}
+			]
+		}
+	],
+	"options": ["Hello World!", "Welcome to eeks!"],
+	"handlers": []
+}
+```
 
 ## Gestione delle scelte

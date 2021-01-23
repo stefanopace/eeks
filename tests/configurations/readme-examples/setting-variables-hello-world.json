@@ -1,0 +1,6 @@
+{
+	"type": "list",
+	"set": [ { "name": "greeting" } ],
+	"options": ["Hello World!", "Welcome to eeks!"],
+	"handlers": []
+}

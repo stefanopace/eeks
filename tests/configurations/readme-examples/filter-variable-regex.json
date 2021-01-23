@@ -1,0 +1,17 @@
+{
+	"type": "list",
+	"set": [ 
+		{ 
+			"name": "greeting",
+			"filters": [
+				{
+					"type": "regex",
+					"substitute": "([A-z]+) .*",
+					"with": "$1"
+				}
+			]
+		}
+	],
+	"options": ["Hello World!", "Welcome to eeks!"],
+	"handlers": []
+}
