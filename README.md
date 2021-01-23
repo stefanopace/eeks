@@ -26,7 +26,7 @@ Es:
 ```
 {
 	"type": "list",
-	"options": ["Hello", "World"],
+	"options": ["Hello", "World!"],
 	"handlers": []
 }
 ```
@@ -40,8 +40,8 @@ Sarà necessario inserire nel json il parametro "type" con valore "dynamic" e sp
 Es:
 ```
 {
-	"type": "list",
-	"execute": ["Hello", "World!"],
+	"type": "dynamic",
+	"execute": ["echo Hello; echo World!"],
 	"handlers": []
 }
 ```
