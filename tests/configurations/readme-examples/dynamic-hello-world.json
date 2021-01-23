@@ -1,0 +1,5 @@
+{
+	"type": "dynamic",
+	"execute": ["echo Hello; echo World!"],
+	"handlers": []
+}

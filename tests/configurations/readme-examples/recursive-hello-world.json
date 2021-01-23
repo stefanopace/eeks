@@ -1,0 +1,7 @@
+{
+	"type": "recursive",
+	"accumulator": { "name": "acc", "initial": "Hello" },
+	"execute": ["echo {acc}; echo 'World!'"],
+	"stop-condition": ["echo {acc} | grep 'World!'"],
+	"handlers": []
+}

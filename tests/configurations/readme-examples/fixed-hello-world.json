@@ -1,0 +1,5 @@
+{
+	"type": "list",
+	"options": ["Hello", "World!"],
+	"handlers": []
+}

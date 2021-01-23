@@ -30,3 +30,5 @@
 2020-10-18 20:01:56 -> not done yet -> sistemare lo storico delle scelte con il nuovo sistema
 2020-10-18 20:02:43 -> 2020-10-18 20:05:31 -> mettere i matchers in and invece che in or
 2020-10-18 21:34:16 -> not done yet -> valutare possibilita di eseguire comandi con altri interpreti oltre sh
+2021-01-23 18:02:39 -> not done yet -> valutare la sostituzione dei parametri nei comandi con apici singole invece che doppie
+2021-01-23 18:20:50 -> not done yet -> valutare la separazione degli elementi dell accumulatore tramite accapi o dare la possibilità di definire un separatore
