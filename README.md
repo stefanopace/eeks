@@ -19,7 +19,7 @@ Il file json dovrà contenere un ogetto che descrive in che modo generare le opz
 
 ### List
 
-Per generare le opzioni a partire da un elenco fissato. 
+Per generare le opzioni a partire da un elenco fissato.  
 Sarà necessario inserire nel json il parametro "type" con valore "list" e specificare l'elenco di opzioni nel parametro "options".
 
 Es:
@@ -34,7 +34,7 @@ Es:
 
 ### Dynamic
 
-Per generare le opzioni tramite l'esecuzione di uno script. 
+Per generare le opzioni tramite l'esecuzione di uno script.  
 Sarà necessario inserire nel json il parametro "type" con valore "dynamic" e specificare il comando da eseguire nel parametro "execute".
 
 Es:
@@ -47,7 +47,7 @@ Es:
 ```
 ### Recursive
 
-Per generare le opzioni tramite l'esecuzione di uno script i cui argomenti sono in funzione delle precedenti scelte effettuate nello stesso menu. 
+Per generare le opzioni tramite l'esecuzione di uno script i cui argomenti sono in funzione delle precedenti scelte effettuate nello stesso menu.  
 Sarà necessario inserire nel json il parametro "type" con valore "recursive" e specificare il comando da eseguire nel parametro "execute". Il comando inserito può contenere la variabile definita nel parametro "accumulator". Questa variabile conterrà inizialmente il valore definito in "initial" e nelle successive esecuzioni il valore definito da "initial" più tutte le opzioni scelte fino ad ora separate da spazi. 
 Dopo aver effettuato una scelta verrà eseguito il comando definito nel parametro "stop-condition", se questo comando avrà come exit code 0 allora la ricorsione terminerà.
 
